@@ -20,9 +20,8 @@ var cardBadge = function(t) {
 };
 
 var cardButtons = function(t) {
-  return 
-    complexityButton(t),
-  ;
+  return
+    complexityButton(t);
 };
 var impactButton = function(t) {
   return t.get('card', 'shared', 'complexity').then(function(points) {
