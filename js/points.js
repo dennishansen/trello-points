@@ -37,7 +37,7 @@ var cardButton = function(t) {
 };
 
 var cardButtonCallback = function(t) {
-  var points = [1, 2, 3, 4, NO_POINTS].map(function(point) {
+  var points = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS].map(function(point) {
     return {
       text: point,
       callback: function(t) {
