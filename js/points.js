@@ -64,6 +64,6 @@ TrelloPowerUp.initialize({
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
-    return [cardButton(t), cardButton(t)];
+    return cardButton(t);
   }
 });
