@@ -62,14 +62,10 @@ TrelloPowerUp.initialize({
   'card-buttons': function(t, options) {
     return [
       {
-        icon: ICON,
-        text: text,
-        callback: complexityButtonCallback
+        text: 'asdas',
       },
       {
-        icon: ICON,
-        text: text,
-        callback: complexityButtonCallback
+        text: 'aasd',
       }
     ];
   }
