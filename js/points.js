@@ -31,6 +31,11 @@ var cardButton = function(t) {
         icon: ICON,
         text: text,
         callback: cardButtonCallback
+      },
+      {
+        icon: ICON,
+        text: text,
+        callback: cardButtonCallback
       }
     ];
   });
