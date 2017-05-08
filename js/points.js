@@ -84,6 +84,21 @@ TrelloPowerUp.initialize({
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
-    return renderComplexity(t);
+    return [
+      function(t) {
+        return [
+          {
+            text: 'Complexity'
+          }
+        ];
+      },
+      function(t) {
+        return [
+          {
+            text: 'Impact'
+          }
+        ];
+      }
+    ];
   }
 });
