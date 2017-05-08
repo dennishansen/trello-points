@@ -22,7 +22,7 @@ var cardBadge = function(t) {
 var cardButtons = function(t) {
   return [
     complexityButton(t),
-    impactButton(t)
+    {text:'hello'}
   ];
 };
 var impactButton = function(t) {
