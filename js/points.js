@@ -19,22 +19,8 @@ var cardBadge = function(t) {
   });
 };
 
-var renderComplexity = function(t) {
-  return [
-    {
-      text: 'Complexity'
-    }
-  ];
-}
-var renderImpact = function(t) {
-  return [
-    {
-      text: 'Complexity'
-    }
-  ];
-}
 var cardButtons = function(t) {
-  return t.get('card', 'shared', 'points').then(function(points) {
+  return t.get('card', 'shared').then(function(points) {
     if (points.complexity && points.complexity != NO_POINTS) {
       var complexityText = points.complexity + " complexity";
     } else {
@@ -55,6 +41,23 @@ var cardButtons = function(t) {
       {
         icon: ICON,
         text: impactText,
+        callback: impactButtonCallback
+      }
+    ];
+  });
+}
+var complexityButton = function(t) {
+  return t.get('card', 'shared', 'complexity').then(function(points) {
+    if (points && points != NO_POINTS) {
+      var text = points + " complexity";
+    } else {
+      var text = "Complexity";
+    }
+
+    return [
+      {
+        icon: ICON,
+        text: text,
         callback: complexityButtonCallback
       }
     ];
@@ -66,7 +69,7 @@ var complexityButtonCallback = function(t) {
     return {
       text: point,
       callback: function(t) {
-        return t.set('card', 'shared', 'point', point).then(function() {
+        return t.set('card', 'shared', 'complexity', point).then(function() {
           return t.closePopup();
         })
       }
@@ -84,17 +87,6 @@ TrelloPowerUp.initialize({
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
-    return {
-      dynamic: {
-        return [
-          function() {
-            return { text: 'Complexity' };
-          },
-          function() {
-            return { text: 'Impact' };
-          }
-        ];
-      }
-    }
+    return cardButtons(t);
   }
 });
