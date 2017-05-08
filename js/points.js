@@ -26,7 +26,21 @@ var cardButtons = function(t) {
   ];
 };
 var impactButton = function(t) {
-  return { text: 'hello'}
+  return t.get('card', 'shared', 'complexity').then(function(points) {
+    if (points && points != NO_POINTS) {
+      var text = points + " complexity";
+    } else {
+      var text = "Complexity";
+    }
+
+    return [
+      {
+        icon: ICON,
+        text: text,
+        callback: complexityButtonCallback
+      }
+    ];
+  });
 }
 var complexityButton = function(t) {
   return t.get('card', 'shared', 'complexity').then(function(points) {
