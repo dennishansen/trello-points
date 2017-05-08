@@ -1,6 +1,6 @@
 var ICON = './images/logo.png';
 var NO_POINTS = '?';
-var points = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS];
+var pointArray = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS];
 
 var cardBadge = function(t) {
   return t.get('card', 'shared', 'complexity').then(function(points) {
@@ -38,7 +38,7 @@ var cardButton = function(t) {
 };
 
 var complexityButtonCallback = function(t) {
-  var complexity = points.map(function(point) {
+  var points = pointArray.map(function(point) {
     return {
       text: point,
       callback: function(t) {
@@ -51,7 +51,7 @@ var complexityButtonCallback = function(t) {
 
   return t.popup({
     title: 'What is the complexity?',
-    items: complexity
+    items: points
   });
 };
 
