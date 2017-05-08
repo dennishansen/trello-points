@@ -64,9 +64,7 @@ testButton = function(t) {
 
     return [
       {
-        icon: ICON,
-        text: text,
-        callback: complexityButtonCallback
+        text: 'um',
       }
     ];
   });
