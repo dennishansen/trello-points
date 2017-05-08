@@ -85,8 +85,8 @@ TrelloPowerUp.initialize({
   },
   'card-buttons': function(t, options) {
     return [
-      renderComplexity(t),
-      renderImpact(t)
+      renderComplexity,
+      renderImpact
     ];
   }
 });
