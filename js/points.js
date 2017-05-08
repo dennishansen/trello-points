@@ -54,16 +54,18 @@ var complexityButtonCallback = function(t) {
     items: points
   });
 };
-
+testButton = function(t) {
+  return {
+    text: 'thisworks'
+  };
+};
 TrelloPowerUp.initialize({
   'card-badges': function(t, options) {
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
     return [
-      {
-        cardButton(t),
-      },
+      testButton(t),
       {
         text: 'aasd',
       }
