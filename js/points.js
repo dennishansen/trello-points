@@ -38,7 +38,7 @@ var cardButton = function(t) {
 };
 
 var complexityButtonCallback = function(t) {
-  points.map(function(point) {
+  var complexity = points.map(function(point) {
     return {
       text: point,
       callback: function(t) {
@@ -51,7 +51,7 @@ var complexityButtonCallback = function(t) {
 
   return t.popup({
     title: 'What is the complexity?',
-    items: points
+    items: complexity
   });
 };
 
