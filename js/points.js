@@ -27,13 +27,12 @@ var cardButton = function(t) {
       var text = "Complexity";
     }
 
-    return [
+    return
       {
         icon: ICON,
         text: text,
         callback: complexityButtonCallback
-      }
-    ];
+      };
   });
 };
 
