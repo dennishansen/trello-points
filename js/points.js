@@ -62,7 +62,7 @@ TrelloPowerUp.initialize({
   'card-buttons': function(t, options) {
     return [
       {
-        text: 'asdas',
+        cardButton(t),
       },
       {
         text: 'aasd',
