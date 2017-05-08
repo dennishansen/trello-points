@@ -85,20 +85,12 @@ TrelloPowerUp.initialize({
   },
   'card-buttons': function(t, options) {
     return [
-      function(t) {
-        return [
           {
             text: 'Complexity'
-          }
-        ];
-      },
-      function(t) {
-        return [
+          },
           {
             text: 'Impact'
           }
-        ];
-      }
     ];
   }
 });
