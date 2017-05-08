@@ -27,15 +27,24 @@ var cardButton = function(t) {
       var text = "Complexity";
     }
 
-    return
+    return [
       {
         icon: ICON,
         text: text,
         callback: complexityButtonCallback
-      };
+      }
+    ];
   });
 };
-
+text(r) {
+  return [
+    {
+      icon: ICON,
+      text: text,
+      callback: complexityButtonCallback
+    }
+  ];
+}
 var complexityButtonCallback = function(t) {
   var points = pointArray.map(function(point) {
     return {
@@ -59,6 +68,9 @@ TrelloPowerUp.initialize({
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
-    return [cardButton(t)];
+    return [
+      cardButton(t),
+      text(t)
+    ];
   }
 });
