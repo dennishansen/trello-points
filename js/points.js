@@ -19,7 +19,7 @@ var cardBadge = function(t) {
   });
 };
 
-var renderComplexity = (t) => {
+var renderComplexity = function(t) {
   return { text: 'text'};
 }
 var cardButtons = function(t) {
