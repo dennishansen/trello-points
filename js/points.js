@@ -1,8 +1,9 @@
 var ICON = './images/logo.png';
 var NO_POINTS = '?';
+var points = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS];
 
 var cardBadge = function(t) {
-  return t.get('card', 'shared', 'points').then(function(points) {
+  return t.get('card', 'shared', 'complexity').then(function(points) {
     if (points && points != NO_POINTS) {
       return [{
         dynamic: function() {
@@ -19,34 +20,29 @@ var cardBadge = function(t) {
 };
 
 var cardButton = function(t) {
-  return t.get('card', 'shared', 'points').then(function(points) {
+  return t.get('card', 'shared', 'complexity').then(function(points) {
     if (points && points != NO_POINTS) {
-      var text = points + " points";
+      var text = points + " complexity";
     } else {
-      var text = "Points";
+      var text = "Complexity";
     }
 
     return [
       {
         icon: ICON,
         text: text,
-        callback: cardButtonCallback
-      },
-      {
-        icon: ICON,
-        text: text,
-        callback: cardButtonCallback
+        callback: complexityButtonCallback
       }
     ];
   });
 };
 
-var cardButtonCallback = function(t) {
-  var points = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS].map(function(point) {
+var complexityButtonCallback = function(t) {
+  points.map(function(point) {
     return {
       text: point,
       callback: function(t) {
-        return t.set('card', 'shared', 'points', point).then(function() {
+        return t.set('card', 'shared', 'complexity', point).then(function() {
           return t.closePopup();
         })
       }
@@ -54,7 +50,7 @@ var cardButtonCallback = function(t) {
   });
 
   return t.popup({
-    title: 'How many points?',
+    title: 'What is the complexity?',
     items: points
   });
 };
