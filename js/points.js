@@ -36,15 +36,7 @@ var cardButton = function(t) {
     ];
   });
 };
-text(r) {
-  return [
-    {
-      icon: ICON,
-      text: text,
-      callback: complexityButtonCallback
-    }
-  ];
-}
+
 var complexityButtonCallback = function(t) {
   var points = pointArray.map(function(point) {
     return {
@@ -69,8 +61,16 @@ TrelloPowerUp.initialize({
   },
   'card-buttons': function(t, options) {
     return [
-      cardButton(t),
-      text(t)
+      {
+        icon: ICON,
+        text: text,
+        callback: complexityButtonCallback
+      },
+      {
+        icon: ICON,
+        text: text,
+        callback: complexityButtonCallback
+      }
     ];
   }
 });
