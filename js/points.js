@@ -51,23 +51,13 @@ var complexityButtonCallback = function(t) {
 
   return t.popup({
     title: 'What is the complexity?',
-    items: points
+    items: pointsArray
   });
 };
 testButton = function(t) {
-  return t.get('card', 'shared', 'complexity').then(function(points) {
-    if (points && points != NO_POINTS) {
-      var text = points + " complexity";
-    } else {
-      var text = "Complexity";
-    }
-
-    return [
-      {
-        text: 'um',
-      }
-    ];
-  });
+  return {
+    text: 'thisworks'
+  };
 };
 TrelloPowerUp.initialize({
   'card-badges': function(t, options) {
