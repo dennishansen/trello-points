@@ -11,7 +11,14 @@ var cardBadge = function(t) {
             icon: ICON
           }
         }
-      }]
+      },
+      dynamic: function() {
+        return {
+          text: points,
+          icon: ICON
+        }
+      }
+    }]
     } else {
       return [];
     }
