@@ -19,7 +19,11 @@ var cardBadge = function(t) {
   });
 };
 
-var cardButton = function(t) {
+var cardButtons = function(t) {
+  return complexityButton(t);
+};
+
+var complexityButton = function(t) {
   return t.get('card', 'shared', 'complexity').then(function(points) {
     if (points && points != NO_POINTS) {
       var text = points + " complexity";
@@ -35,7 +39,7 @@ var cardButton = function(t) {
       }
     ];
   });
-};
+}
 
 var complexityButtonCallback = function(t) {
   var points = pointArray.map(function(point) {
@@ -60,6 +64,6 @@ TrelloPowerUp.initialize({
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
-    return cardButton(t);
+    return cardButtons(t);
   }
 });
