@@ -20,7 +20,18 @@ var cardBadge = function(t) {
 };
 
 var renderComplexity = function(t) {
-  return { text: 'text'};
+  return [
+    {
+      text: 'Complexity'
+    }
+  ];
+}
+var renderImpact = function(t) {
+  return [
+    {
+      text: 'Complexity'
+    }
+  ];
 }
 var cardButtons = function(t) {
   return t.get('card', 'shared', 'points').then(function(points) {
@@ -74,7 +85,8 @@ TrelloPowerUp.initialize({
   },
   'card-buttons': function(t, options) {
     return [
-      renderComplexity(t)
+      renderComplexity(t),
+      renderImpact(t)
     ];
   }
 });
