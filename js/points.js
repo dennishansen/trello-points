@@ -20,14 +20,16 @@ var cardBadge = function(t) {
 };
 
 var cardButtons = function(t) {
-  return complexityButton(t);
-};
-var impactButton = function(t) {
-  return t.get('card', 'shared', 'complexity').then(function(points) {
-    if (points && points != NO_POINTS) {
-      var text = points + " complexity";
+  return t.get('card', 'shared', 'points').then(function(points) {
+    if (points.complexity && points.complexity != NO_POINTS) {
+      var complexityText = points.complexity + " complexity";
     } else {
       var text = "Complexity";
+    }
+    if (points.impact && points.impact != NO_POINTS) {
+      var impactText = points.impact + " impact";
+    } else {
+      var text = "Impact";
     }
 
     return [
