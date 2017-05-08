@@ -31,11 +31,6 @@ var cardButton = function(t) {
         icon: ICON,
         text: text,
         callback: cardButtonCallback
-      },
-      {
-        icon: ICON,
-        text: text,
-        callback: cardButtonCallback
       }
     ];
   });
@@ -64,6 +59,6 @@ TrelloPowerUp.initialize({
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
-    return cardButton(t);
+    return [cardButton(t), cardButton(t)];
   }
 });
