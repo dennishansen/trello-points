@@ -51,24 +51,15 @@ var complexityButtonCallback = function(t) {
 
   return t.popup({
     title: 'What is the complexity?',
-    items: pointsArray
+    items: points
   });
 };
-testButton = function(t) {
-  return {
-    text: 'thisworks'
-  };
-};
+
 TrelloPowerUp.initialize({
   'card-badges': function(t, options) {
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
-    return [
-      testButton(t),
-      {
-        text: 'aasd',
-      }
-    ];
+    return cardButtons(t);
   }
 });
