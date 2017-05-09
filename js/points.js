@@ -1,4 +1,4 @@
-var ICON = './images/logo.png';
+var ICON = './images/logo.svg';
 var NO_POINTS = '?';
 var pointsArray = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS];
 
@@ -15,7 +15,7 @@ var cardBadge = function(t) {
               title: 'Importance',
               text: (impact / complexity).toFixed(1),
               icon: ICON,
-              color: 'yellow'
+              color: 'green'
             }
           }
         }]

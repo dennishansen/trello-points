@@ -3,7 +3,7 @@
   "description": "",
   "details": "Add points to cards!",
   "icon": {
-    "url": "./images/logo.png"
+    "url": "./images/logo.svg"
   },
   "author": "Kevin Bongart",
   "capabilities": [
