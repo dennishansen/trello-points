@@ -24,24 +24,25 @@ var cardButton = function(t) {
   .then(function(complexity) {
     return t.get('card', 'shared', 'impact')
     .then(function(impact) {
-    if (complexity && complexity != NO_POINTS) {
-      var text = complexity + " points";
-    } else {
-      var text = "Points";
-    }
-
-    return [
-      {
-        icon: ICON,
-        text: text,
-        callback: complexityButtonCallback
-      },
-      {
-        icon: ICON,
-        text: text,
-        callback: impactButtonCallback
+      if (complexity && complexity != NO_POINTS) {
+        var text = complexity + " points";
+      } else {
+        var text = "Points";
       }
-    ];
+
+      return [
+        {
+          icon: ICON,
+          text: text,
+          callback: complexityButtonCallback
+        },
+        {
+          icon: ICON,
+          text: text,
+          callback: impactButtonCallback
+        }
+      ];
+    });
   });
 };
 
