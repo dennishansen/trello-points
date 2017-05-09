@@ -14,7 +14,7 @@ var cardBadge = function(t) {
             return {
               text: (impact / complexity).toFixed(1),
               icon: ICON,
-              color: 'orange'
+              color: 'yellow'
             }
           }
         }]
