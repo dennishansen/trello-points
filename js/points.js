@@ -27,18 +27,23 @@ var cardButton = function(t) {
       if (complexity && complexity != NO_POINTS) {
         var text = complexity + " points";
       } else {
-        var text = "Points";
+        var complextyText = "Points";
+      }
+      if (impact && impact != NO_POINTS) {
+        var text = impact + " points";
+      } else {
+        var impactText = "Points";
       }
 
       return [
         {
           icon: ICON,
-          text: text,
+          text: complextyText,
           callback: complexityButtonCallback
         },
         {
           icon: ICON,
-          text: text,
+          text: impactText,
           callback: impactButtonCallback
         }
       ];
