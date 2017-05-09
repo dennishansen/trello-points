@@ -1,9 +1,9 @@
 var ICON = './images/logo.png';
 var NO_POINTS = '?';
-var pointArray = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS];
+var points = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS];
 
 var cardBadge = function(t) {
-  return t.get('card', 'shared', 'complexity').then(function(points) {
+  return t.get('card', 'shared', 'points').then(function(points) {
     if (points && points != NO_POINTS) {
       return [{
         dynamic: function() {
@@ -19,39 +19,12 @@ var cardBadge = function(t) {
   });
 };
 
-var cardButtons = function(t) {
-  return t.get('card', 'shared').then(function(points) {
-    if (points.complexity && points.complexity != NO_POINTS) {
-      var complexityText = points.complexity + " complexity";
-    } else {
-      var text = "Complexity";
-    }
-    if (points.impact && points.impact != NO_POINTS) {
-      var impactText = points.impact + " impact";
-    } else {
-      var text = "Impact";
-    }
-
-    return [
-      {
-        icon: ICON,
-        text: complexityText,
-        callback: complexityButtonCallback
-      },
-      {
-        icon: ICON,
-        text: impactText,
-        callback: impactButtonCallback
-      }
-    ];
-  });
-}
-var complexityButton = function(t) {
-  return t.get('card', 'shared', 'complexity').then(function(points) {
+var cardButton = function(t) {
+  return t.get('card', 'shared', 'points').then(function(points) {
     if (points && points != NO_POINTS) {
-      var text = points + " complexity";
+      var text = points + " points";
     } else {
-      var text = "Complexity";
+      var text = "Points";
     }
 
     return [
@@ -59,13 +32,18 @@ var complexityButton = function(t) {
         icon: ICON,
         text: text,
         callback: complexityButtonCallback
+      },
+      {
+        icon: ICON,
+        text: text,
+        callback: impactButtonCallback
       }
     ];
   });
-}
+};
 
 var complexityButtonCallback = function(t) {
-  var points = pointArray.map(function(point) {
+  points.map(function(point) {
     return {
       text: point,
       callback: function(t) {
@@ -82,11 +60,29 @@ var complexityButtonCallback = function(t) {
   });
 };
 
+var impactButtonCallback = function(t) {
+  points.map(function(point) {
+    return {
+      text: point,
+      callback: function(t) {
+        return t.set('card', 'shared', 'impact', point).then(function() {
+          return t.closePopup();
+        })
+      }
+    };
+  });
+
+  return t.popup({
+    title: 'What is the impact?',
+    items: points
+  });
+};
+
 TrelloPowerUp.initialize({
   'card-badges': function(t, options) {
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
-    return cardButtons(t);
+    return cardButton(t);
   }
 });
