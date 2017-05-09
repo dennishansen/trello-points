@@ -43,7 +43,7 @@ var cardButton = function(t) {
 };
 
 var complexityButtonCallback = function(t) {
-  pointsArray.map(function(point) {
+  var points = pointsArray.map(function(point) {
     return {
       text: point,
       callback: function(t) {
@@ -61,7 +61,7 @@ var complexityButtonCallback = function(t) {
 };
 
 var impactButtonCallback = function(t) {
-  pointsArray.map(function(point) {
+  var points = pointsArray.map(function(point) {
     return {
       text: point,
       callback: function(t) {
