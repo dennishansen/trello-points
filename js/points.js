@@ -3,19 +3,27 @@ var NO_POINTS = '?';
 var pointsArray = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS];
 
 var cardBadge = function(t) {
-  return t.get('card', 'shared', 'points').then(function(points) {
-    if (points && points != NO_POINTS) {
-      return [{
-        dynamic: function() {
-          return {
-            text: points,
-            icon: ICON
+  return t.get('card', 'shared', 'complexity')
+  .then(function(complexity) {
+    return t.get('card', 'shared', 'impact')
+    .then(function(impact) {
+      if (complexity && complexity != NO_POINTS &&
+          impact && impact != NO_POINTS) {
+        return [{
+          dynamic: function() {
+            return {
+              text: (impact / complexity).toFixed(1),
+              icon: ICON
+            }
           }
-        }
-      }]
-    } else {
-      return [];
-    }
+        }]
+      } else {
+        return [];
+      }
+    });
+  });
+  return t.get('card', 'shared', 'points').then(function(points) {
+
   });
 };
 
