@@ -25,14 +25,14 @@ var cardButton = function(t) {
     return t.get('card', 'shared', 'impact')
     .then(function(impact) {
       if (complexity && complexity != NO_POINTS) {
-        var complextyText = complexity + " points";
+        var complextyText = complexity + " complexity";
       } else {
-        var complextyText = "Points";
+        var complextyText = "Complexity";
       }
       if (impact && impact != NO_POINTS) {
-        var impactText = impact + " points";
+        var impactText = impact + " impact";
       } else {
-        var impactText = "Points";
+        var impactText = "Impact";
       }
 
       return [
@@ -52,7 +52,7 @@ var cardButton = function(t) {
 };
 
 var complexityButtonCallback = function(t) {
-  var points = pointsArray.map(function(point) {
+  let points = pointsArray.map(function(point) {
     return {
       text: point,
       callback: function(t) {
@@ -70,7 +70,7 @@ var complexityButtonCallback = function(t) {
 };
 
 var impactButtonCallback = function(t) {
-  var points = pointsArray.map(function(point) {
+  let points = pointsArray.map(function(point) {
     return {
       text: point,
       callback: function(t) {
