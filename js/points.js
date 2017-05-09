@@ -1,6 +1,6 @@
 var ICON = './images/logo.png';
 var NO_POINTS = '?';
-var points = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS];
+var pointsArray = [1, 2, 3, 5, 8, 20, 40, 100, NO_POINTS];
 
 var cardBadge = function(t) {
   return t.get('card', 'shared', 'points').then(function(points) {
@@ -43,7 +43,7 @@ var cardButton = function(t) {
 };
 
 var complexityButtonCallback = function(t) {
-  points.map(function(point) {
+  pointsArray.map(function(point) {
     return {
       text: point,
       callback: function(t) {
