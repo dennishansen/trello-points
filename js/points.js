@@ -25,12 +25,12 @@ var cardButton = function(t) {
     return t.get('card', 'shared', 'impact')
     .then(function(impact) {
       if (complexity && complexity != NO_POINTS) {
-        var text = complexity + " points";
+        var complextyText = complexity + " points";
       } else {
         var complextyText = "Points";
       }
       if (impact && impact != NO_POINTS) {
-        var text = impact + " points";
+        var impactText = impact + " points";
       } else {
         var impactText = "Points";
       }
