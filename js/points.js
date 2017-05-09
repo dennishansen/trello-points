@@ -13,7 +13,8 @@ var cardBadge = function(t) {
           dynamic: function() {
             return {
               text: (impact / complexity).toFixed(1),
-              icon: ICON
+              icon: ICON,
+              color: 'orange'
             }
           }
         }]
