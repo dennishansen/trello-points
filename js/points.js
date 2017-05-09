@@ -12,6 +12,7 @@ var cardBadge = function(t) {
         return [{
           dynamic: function() {
             return {
+              title: 'Importance'
               text: (impact / complexity).toFixed(1),
               icon: ICON,
               color: 'yellow'
@@ -98,9 +99,6 @@ var impactButtonCallback = function(t) {
 
 TrelloPowerUp.initialize({
   'card-badges': function(t, options) {
-    return cardBadge(t);
-  },
-  'card-detail-badges': function(t, options) {
     return cardBadge(t);
   },
   'card-buttons': function(t, options) {
