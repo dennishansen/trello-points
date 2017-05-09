@@ -61,7 +61,7 @@ var complexityButtonCallback = function(t) {
 };
 
 var impactButtonCallback = function(t) {
-  points.map(function(point) {
+  pointsArray.map(function(point) {
     return {
       text: point,
       callback: function(t) {
